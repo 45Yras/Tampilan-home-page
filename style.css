@@ -1,0 +1,68 @@
+/* style.css */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+
+/* Header & Footer Style */
+.blue-bg { background-color: #add8e6; text-align: center; border: 1px solid black; }
+
+/* Sidebar Style */
+.sidebar-container { padding: 10px; text-align: center; }
+.menu-box { 
+    background-color: #dc3545; /* Merah sesuai gambar soal */
+    color: white; 
+    padding: 10px; 
+    margin-bottom: 5px; 
+    border: 1px solid black;
+    font-size: 12px;
+    font-weight: bold;
+}
+.menu-box a { color: white; text-decoration: none; display: block; }
+
+/* Form Content Style */
+.content-area { padding: 20px; text-align: center; }
+.form-group { margin-bottom: 10px; display: flex; justify-content: center; }
+.form-group label { width: 80px; text-align: left; font-size: 14px; }
+.form-group input, .form-group textarea { width: 250px; border: 1px solid #ccc; padding: 5px; }
+.btn-submit { 
+    background-color: #5cb85c; /* Hijau sesuai gambar */
+    color: white; 
+    border: none; 
+    padding: 8px 80px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+/* style.css */
+.table-jadwal {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.table-jadwal th {
+    background-color: #add8e6; /* Biru muda persis PDF */
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-jadwal td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+/* Warna abu-abu untuk baris istirahat sesuai PDF */
+.bg-istirahat {
+    background-color: #d3d3d3; 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Kolom waktu biasanya lebih tegas */
+.waktu {
+    font-weight: bold;
+}

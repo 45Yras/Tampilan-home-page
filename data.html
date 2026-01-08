@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        table { width: 90%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; text-align: left; }
+        th { background-color: #add8e6; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Data Mahasiswa</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+            </tr>
+        </thead>
+        <tbody id="tabelBody">
+            </tbody>
+    </table>
+
+    <script>
+        // Fungsi untuk menampilkan data saat halaman dibuka
+        function muatData() {
+            let tabel = document.getElementById('tabelBody');
+            let daftarMhs = JSON.parse(localStorage.getItem('dataMahasiswa')) || [];
+            
+            tabel.innerHTML = ""; // Bersihkan tabel dulu
+
+            if (daftarMhs.length === 0) {
+                tabel.innerHTML = "<tr><td colspan='4' align='center'>Tidak ada data</td></tr>";
+            } else {
+                daftarMhs.forEach((mhs, index) => {
+                    let row = `<tr>
+                        <td align="center">${index + 1}</td>
+                        <td>${mhs.npm}</td>
+                        <td>${mhs.nama}</td>
+                        <td>${mhs.alamat}</td>
+                    </tr>`;
+                    tabel.innerHTML += row;
+                });
+            }
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        window.onload = muatData;
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function simpanData() {
+            // Ambil nilai dari form
+            let npm = document.getElementById('npm').value;
+            let nama = document.getElementById('nama').value;
+            let alamat = document.getElementById('alamat').value;
+
+            if (npm === "" || nama === "" || alamat === "") {
+                alert("Harap isi semua bidang!");
+                return;
+            }
+
+            // Ambil data yang sudah ada di storage atau buat array baru jika kosong
+            let daftarMhs = JSON.parse(localStorage.getItem('dataMahasiswa')) || [];
+
+            // Tambah data baru
+            daftarMhs.push({
+                npm: npm,
+                nama: nama,
+                alamat: alamat
+            });
+
+            // Simpan kembali ke localStorage
+            localStorage.setItem('dataMahasiswa', JSON.stringify(daftarMhs));
+
+            alert("Data Berhasil Disimpan!");
+            
+            // Reset form
+            document.getElementById('formMhs').reset();
+            
+            // OTOMATIS pindah ke halaman tampil data setelah simpan
+            window.location.href = "data.html";
+        }
+    </script>
+</head>
+<body class="content-area">
+    <h3>Input Data Mahasiswa</h3>
+    <form id="formMhs">
+        <div class="form-group">
+            <label>NPM</label>
+            <input type="text" id="npm">
+        </div>
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" id="nama">
+        </div>
+        <div class="form-group">
+            <label>Alamat</label>
+            <textarea id="alamat" rows="4"></textarea>
+        </div>
+        <button type="button" class="btn-submit" onclick="simpanData()">Submit</button>
+    </form>
+</body>
+</html>
